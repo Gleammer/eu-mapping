@@ -21,11 +21,14 @@ body #app .map-wrapper object{
 .info-modal{
     display: block;
     position: absolute;
-    top: 0;
-    left: 0;
+    transform: translate(-50%, -100%);
     padding: 15px;
     max-width: min(400px, 80%);
     background-color: rgba(0,0,0,.2);
+}
+.info-modal.disabled {
+    display: none;
+    visibility: hidden;
 }
 
 .info-modal .modal-header{
