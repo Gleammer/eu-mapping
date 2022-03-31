@@ -1,0 +1,15 @@
+{
+  "name": "eu-mapping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "hrs -p 8080 ."
+  },
+  "author": "Radu Chirilov",
+  "license": "ISC",
+  "dependencies": {
+    "simple-hot-reload-server": "^1.2.0"
+  }
+}

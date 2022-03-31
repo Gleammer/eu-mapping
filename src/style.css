@@ -1,0 +1,34 @@
+body {
+    outline: none;
+}
+
+body #app {
+    max-width: min(980px, 80%);
+    margin: 0 auto;
+}
+
+body #app .map-wrapper{
+    display: block;
+    position: relative;
+}
+
+body #app .map-wrapper object{
+    display: block;
+    width: 100%;
+}
+
+/* Info Modal Styles */
+.info-modal{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 15px;
+    max-width: min(400px, 80%);
+    background-color: rgba(0,0,0,.2);
+}
+
+.info-modal .modal-header{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
