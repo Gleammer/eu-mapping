@@ -1,3 +1,4 @@
+/* Info Modal setup and events */
 // Initial Modal setup
 const modalNode = document.querySelector('.info-modal')
 let currentTimeout = undefined
@@ -47,6 +48,9 @@ const getRelativeCoords = (element) => {
     }
 }
 
+/* Info Wrapper setup and modifiers */
+const infoNode = document.querySelector('.info-wrapper')
+//infoNode.classList.add('disabled')
 
 /* Map PIN Event listeners */
 // On mouse enter event
@@ -72,16 +76,21 @@ const onMouseLeaveEvent = (event) => {
         } else {
             hideModalNode()
         }
-    }, 1000) // wait a second in order to give the user some breathing space
+    }, 500) // wait a second in order to give the user some breathing space
     //console.log(`Leave Pin: ${event.target.id}`)
 }
 
+// On pin click event
+const onClickEvent = (event) => {
+    //
+}
 
 /* Set mouse events listeners for pins */
 const setPinListeners = (pins) => {
     pins.forEach(element => {
         element.addEventListener('mouseenter', onMouseEnterEvent)
         element.addEventListener('mouseleave', onMouseLeaveEvent)
+        element.addEventListener('click', onClickEvent)
     });
 }
 

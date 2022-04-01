@@ -30,8 +30,49 @@ body #app .map-wrapper object{
     display: none;
     visibility: hidden;
 }
-
 .info-modal .modal-header{
     display: grid;
     grid-template-columns: 4fr 1fr;
 }
+
+/* Info Wrapper Styles */
+.info-wrapper{
+    display: block;
+}
+.info-wrapper.disabled{
+    display: none;
+    visibility: hidden;
+}
+
+.info-wrapper .info-result .row{
+    position: relative;
+}
+.info-wrapper .info-result .row.title-row{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+}
+.info-wrapper .info-result .row.img-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.info-wrapper .info-result .row .col{
+    display: block;
+}
+
+.info-wrapper .info-result .title,
+.info-wrapper .info-result .subtitle,
+.info-wrapper .info-result .address{
+    margin: 10px auto;
+}
+.info-wrapper .info-result .area-of-activity{}
+.info-wrapper .info-result .type-of-activity{}
+
+.info-wrapper .info-result img{
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.info-wrapper .info-result .additional-info h4{}
+.info-wrapper .info-result .additional-info p{}
+.info-wrapper .info-result .keywords{}
