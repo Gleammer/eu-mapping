@@ -50,7 +50,16 @@ const getRelativeCoords = (element) => {
 
 /* Info Wrapper setup and modifiers */
 const infoNode = document.querySelector('.info-wrapper')
-//infoNode.classList.add('disabled')
+let currentPinID = undefined
+infoNode.classList.add('disabled')
+
+const populateInfoNode = (pinID) => {
+    // Get data using pinID
+    
+    // Populate infoNode with information
+    
+    console.log(pinID)
+}
 
 /* Map PIN Event listeners */
 // On mouse enter event
@@ -67,12 +76,12 @@ const onMouseEnterEvent = (event) => {
 }
 
 // On mouse leave event
-const onMouseLeaveEvent = (event) => {
+const onMouseLeaveEvent = () => {
     pin_mouseIsOver = false
     currentTimeout = setTimeout(() => {
         // Add event listener or disable modal
         if(modal_mouseIsOver){
-           addModalLeaveListener()
+            addModalLeaveListener()
         } else {
             hideModalNode()
         }
@@ -81,8 +90,20 @@ const onMouseLeaveEvent = (event) => {
 }
 
 // On pin click event
-const onClickEvent = (event) => {
-    //
+const onClickEvent = (pinID) => {
+    // Check if selected Pin is already displayed
+    if(pinID === currentPinID){
+        infoNode.classList.add('disabled')
+        return
+    }
+    // Hide infoNode before updating 
+    infoNode.classList.add('disabled')
+    // Populate the infoNode with new data after pin select
+    populateInfoNode(element)
+    
+    // Display the infoNode
+    infoNode.classList.remove('disabled')
+    
 }
 
 /* Set mouse events listeners for pins */
@@ -90,7 +111,7 @@ const setPinListeners = (pins) => {
     pins.forEach(element => {
         element.addEventListener('mouseenter', onMouseEnterEvent)
         element.addEventListener('mouseleave', onMouseLeaveEvent)
-        element.addEventListener('click', onClickEvent)
+        element.addEventListener('click', () => onClickEvent(element.id))
     });
 }
 
