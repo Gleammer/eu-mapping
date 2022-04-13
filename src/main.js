@@ -23,6 +23,15 @@ const hideModalNode = () => {
     modalNode.classList.add('disabled')
 }
 
+const populateModalNode = (pinID) => {
+    // Get data using pinID
+    const {data} = pin_data.find(elem => elem.pin_id === pinID)
+    // Populate infoNode with information
+    modalNode.querySelector('h3').innerText = data.name
+    modalNode.querySelector('h5 span.type').innerText = data.type
+    modalNode.querySelector('h5 span.address').innerText = data.address
+}
+
 // Dispatch on info-modal mouse over event
 modalNode.addEventListener('mouseenter', () => {
     modal_mouseIsOver = true
@@ -64,10 +73,14 @@ const populateInfoNode = (pinID) => {
     // Get data using pinID
     const {data} = pin_data.find(elem => elem.pin_id === pinID)
     // Populate infoNode with information
-    modalNode.querySelector('h3').innerText = data.name
-    modalNode.querySelector('h5 span.type').innerText = data.type
-    modalNode.querySelector('h5 span.address').innerText = data.address
-    console.log(pinID, data)
+    infoNode.querySelector('h3.title').innerHTML = data.name
+    infoNode.querySelector('h5.subtitle').innerHTML = data.type
+    infoNode.querySelector('h5.address').innerHTML = data.address
+    infoNode.querySelector('.area-of-activity span').innerHTML = data.area_of_activity
+    infoNode.querySelector('.type-of-activity span').innerHTML = data.type_of_activity
+    infoNode.querySelector('.additional-info').innerHTML = data.additional_info
+    infoNode.querySelector('.keywords span').innerHTML = data.keywords
+    console.log(data)
 }
 
 /* Map PIN Event listeners */
@@ -78,7 +91,7 @@ const onMouseEnterEvent = (event) => {
     clearTimeout(currentTimeout)
     
     // Repopulate the modalNode
-    populateInfoNode(event.target.id)
+    populateModalNode(event.target.id)
 
     pin_mouseIsOver = true
     const rez = getRelativeCoords(event.target)
@@ -111,7 +124,7 @@ const onClickEvent = (pinID) => {
     // Hide infoNode before updating 
     infoNode.classList.add('disabled')
     // Populate the infoNode with new data after pin select
-    populateInfoNode(element)
+    populateInfoNode(pinID)
     
     // Display the infoNode
     infoNode.classList.remove('disabled')

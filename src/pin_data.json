@@ -6,9 +6,9 @@
             "address": "Ham Cottage, Albourne Road, Hurstpierpoint, West Sussex, UNITED KINGDOM",
             "type": "Company limited by guarantee / Registered charity",
             "website": "www.bremf.org.uk",
-            "area-of-activity": "Music, Performing Arts",
-            "type-of-activity": "Concerts, Education, Festival",
-            "additional-info": "Who are they? (Background information) \"Brighton Early Music Festival (BREMF) was co-founded by artistic directors Clare Norburn and Deborah Roberts as a pilot project in 2002 in Brighton, East Sussex. To date it's the largest early music festival (with a Brighton twist) in the South of England. The main activity of the charity is the festival, which takes place in late October and early November.\nThe organisation's objectives are:\nTo encourage, advance, develop and maintain public education in appreciation of and involvement in pre-classical and classical music and the performing arts, by promoting periodically a series of public concerts, dramatic performances, exhibitions and other cultural events.\nTo promote and assist in the advancement of public and professional education by the provision of workshops, lectures and educational events for people of all ages.\"",
+            "area_of_activity": "Music, Performing Arts",
+            "type_of_activity": "Concerts, Education, Festival",
+            "additional_info": "Who are they? (Background information) \"Brighton Early Music Festival (BREMF) was co-founded by artistic directors Clare Norburn and Deborah Roberts as a pilot project in 2002 in Brighton, East Sussex. To date it's the largest early music festival (with a Brighton twist) in the South of England. The main activity of the charity is the festival, which takes place in late October and early November.\nThe organisation's objectives are:\nTo encourage, advance, develop and maintain public education in appreciation of and involvement in pre-classical and classical music and the performing arts, by promoting periodically a series of public concerts, dramatic performances, exhibitions and other cultural events.\nTo promote and assist in the advancement of public and professional education by the provision of workshops, lectures and educational events for people of all ages.\"",
             "keywords": "by choice, by habit, by surprise, community rooted, data, organisational change, partnership, place"
         }
     },
@@ -19,9 +19,9 @@
             "address": "Ham Cottage, Albourne Road, Hurstpierpoint, West Sussex, UNITED KINGDOM",
             "type": "Company limited by guarantee / Registered charity",
             "website": "www.bremf.org.uk",
-            "area-of-activity": "Music, Performing Arts",
-            "type-of-activity": "Concerts, Education, Festival",
-            "additional-info": "Who are they? (Background information) \"Brighton Early Music Festival (BREMF) was co-founded by artistic directors Clare Norburn and Deborah Roberts as a pilot project in 2002 in Brighton, East Sussex. To date it's the largest early music festival (with a Brighton twist) in the South of England. The main activity of the charity is the festival, which takes place in late October and early November.\nThe organisation's objectives are:\nTo encourage, advance, develop and maintain public education in appreciation of and involvement in pre-classical and classical music and the performing arts, by promoting periodically a series of public concerts, dramatic performances, exhibitions and other cultural events.\nTo promote and assist in the advancement of public and professional education by the provision of workshops, lectures and educational events for people of all ages.\"",
+            "area_of_activity": "Music, Performing Arts",
+            "type_of_activity": "Concerts, Education, Festival",
+            "additional_info": "Who are they? (Background information) \"Brighton Early Music Festival (BREMF) was co-founded by artistic directors Clare Norburn and Deborah Roberts as a pilot project in 2002 in Brighton, East Sussex. To date it's the largest early music festival (with a Brighton twist) in the South of England. The main activity of the charity is the festival, which takes place in late October and early November.\nThe organisation's objectives are:\nTo encourage, advance, develop and maintain public education in appreciation of and involvement in pre-classical and classical music and the performing arts, by promoting periodically a series of public concerts, dramatic performances, exhibitions and other cultural events.\nTo promote and assist in the advancement of public and professional education by the provision of workshops, lectures and educational events for people of all ages.\"",
             "keywords": "by choice, by habit, by surprise, community rooted, data, organisational change, partnership, place"
         }
     },
@@ -32,24 +32,10 @@
             "address": "Ham Cottage, Albourne Road, Hurstpierpoint, West Sussex, UNITED KINGDOM",
             "type": "Company limited by guarantee / Registered charity",
             "website": "www.bremf.org.uk",
-            "area-of-activity": "Music, Performing Arts",
-            "type-of-activity": "Concerts, Education, Festival",
-            "additional-info": "Who are they? (Background information) \"Brighton Early Music Festival (BREMF) was co-founded by artistic directors Clare Norburn and Deborah Roberts as a pilot project in 2002 in Brighton, East Sussex. To date it's the largest early music festival (with a Brighton twist) in the South of England. The main activity of the charity is the festival, which takes place in late October and early November.\nThe organisation's objectives are:\nTo encourage, advance, develop and maintain public education in appreciation of and involvement in pre-classical and classical music and the performing arts, by promoting periodically a series of public concerts, dramatic performances, exhibitions and other cultural events.\nTo promote and assist in the advancement of public and professional education by the provision of workshops, lectures and educational events for people of all ages.\"",
-            "keywords": "by choice, by habit, by surprise, community rooted, data, organisational change, partnership, place"
-        }
-    },
-    {
-        "pin_id": "4",
-        "data": {
-            "name": "Brighton Early Music Festival",
-            "address": "Ham Cottage, Albourne Road, Hurstpierpoint, West Sussex, UNITED KINGDOM",
-            "type": "Company limited by guarantee / Registered charity",
-            "website": "www.bremf.org.uk",
-            "area-of-activity": "Music, Performing Arts",
-            "type-of-activity": "Concerts, Education, Festival",
-            "additional-info": "Who are they? (Background information) \"Brighton Early Music Festival (BREMF) was co-founded by artistic directors Clare Norburn and Deborah Roberts as a pilot project in 2002 in Brighton, East Sussex. To date it's the largest early music festival (with a Brighton twist) in the South of England. The main activity of the charity is the festival, which takes place in late October and early November.\nThe organisation's objectives are:\nTo encourage, advance, develop and maintain public education in appreciation of and involvement in pre-classical and classical music and the performing arts, by promoting periodically a series of public concerts, dramatic performances, exhibitions and other cultural events.\nTo promote and assist in the advancement of public and professional education by the provision of workshops, lectures and educational events for people of all ages.\"",
+            "area_of_activity": "Music, Performing Arts",
+            "type_of_activity": "Concerts, Education, Festival",
+            "additional_info": "Who are they? (Background information) \"Brighton Early Music Festival (BREMF) was co-founded by artistic directors Clare Norburn and Deborah Roberts as a pilot project in 2002 in Brighton, East Sussex. To date it's the largest early music festival (with a Brighton twist) in the South of England. The main activity of the charity is the festival, which takes place in late October and early November.\nThe organisation's objectives are:\nTo encourage, advance, develop and maintain public education in appreciation of and involvement in pre-classical and classical music and the performing arts, by promoting periodically a series of public concerts, dramatic performances, exhibitions and other cultural events.\nTo promote and assist in the advancement of public and professional education by the provision of workshops, lectures and educational events for people of all ages.\"",
             "keywords": "by choice, by habit, by surprise, community rooted, data, organisational change, partnership, place"
         }
     }
-    
 ]
