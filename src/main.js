@@ -5,6 +5,8 @@ fetch('./src/pin_data.json')
 .then(res => pin_data = res)
 .catch(err => console.warn(err))
 
+fetch()
+
 /* Info Modal setup and events */
 // Initial Modal setup
 const modalNode = document.querySelector('.info-modal')
@@ -80,7 +82,6 @@ const populateInfoNode = (pinID) => {
     infoNode.querySelector('.type-of-activity span').innerHTML = data.type_of_activity
     infoNode.querySelector('.additional-info').innerHTML = data.additional_info
     infoNode.querySelector('.keywords span').innerHTML = data.keywords
-    console.log(data)
 }
 
 /* Map PIN Event listeners */
