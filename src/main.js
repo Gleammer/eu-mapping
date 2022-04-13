@@ -119,6 +119,7 @@ const onClickEvent = (pinID) => {
     // Check if selected Pin is already displayed
     if(pinID === currentPinID){
         infoNode.classList.add('disabled')
+        currentPinID = undefined
         return
     }
     // Hide infoNode before updating 
@@ -128,7 +129,7 @@ const onClickEvent = (pinID) => {
     
     // Display the infoNode
     infoNode.classList.remove('disabled')
-    
+    currentPinID = pinID
 }
 
 /* Set mouse events listeners for pins */
