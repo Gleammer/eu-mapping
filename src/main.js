@@ -5,7 +5,6 @@ fetch('./src/pin_data.json')
 .then(res => pin_data = res)
 .catch(err => console.warn(err))
 
-fetch()
 
 /* Info Modal setup and events */
 // Initial Modal setup
@@ -66,6 +65,7 @@ const getRelativeCoords = (element) => {
     }
 }
 
+
 /* Info Wrapper setup and modifiers */
 const infoNode = document.querySelector('.info-wrapper')
 let currentPinID = undefined
@@ -83,6 +83,7 @@ const populateInfoNode = (pinID) => {
     infoNode.querySelector('.additional-info').innerHTML = data.additional_info
     infoNode.querySelector('.keywords span').innerHTML = data.keywords
 }
+
 
 /* Map PIN Event listeners */
 // On mouse enter event
@@ -133,6 +134,7 @@ const onClickEvent = (pinID) => {
     currentPinID = pinID
 }
 
+
 /* Set mouse events listeners for pins */
 const setPinListeners = (pins) => {
     pins.forEach(element => {
@@ -148,6 +150,7 @@ let svgObject = document.querySelector('.eu-map')
 svgObject.addEventListener('load', () => {
     svgObject = svgObject.contentDocument
     
-    const pinList = svgObject.querySelectorAll('g[id^="Group-6"]')
+    const pinList = svgObject.querySelectorAll('svg>g[id]')
     setPinListeners(pinList)
+    console.log(pinList)
 })
