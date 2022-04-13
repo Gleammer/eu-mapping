@@ -1,3 +1,10 @@
+// Load pin data from json file
+let pin_data = []
+fetch('./src/pin_data.json')
+.then(res => res.json())
+.then(res => pin_data = res)
+.catch(err => console.warn(err))
+
 /* Info Modal setup and events */
 // Initial Modal setup
 const modalNode = document.querySelector('.info-modal')
@@ -55,10 +62,12 @@ infoNode.classList.add('disabled')
 
 const populateInfoNode = (pinID) => {
     // Get data using pinID
-    
+    const {data} = pin_data.find(elem => elem.pin_id === pinID)
     // Populate infoNode with information
-    
-    console.log(pinID)
+    modalNode.querySelector('h3').innerText = data.name
+    modalNode.querySelector('h5 span.type').innerText = data.type
+    modalNode.querySelector('h5 span.address').innerText = data.address
+    console.log(pinID, data)
 }
 
 /* Map PIN Event listeners */
@@ -68,6 +77,9 @@ const onMouseEnterEvent = (event) => {
     removeModalLeaveListener()
     clearTimeout(currentTimeout)
     
+    // Repopulate the modalNode
+    populateInfoNode(event.target.id)
+
     pin_mouseIsOver = true
     const rez = getRelativeCoords(event.target)
     const { width } = event.target.getBoundingClientRect()
