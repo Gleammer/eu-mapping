@@ -1,3 +1,10 @@
+// Load pin data from json file
+let pin_data = []
+fetch('./src/pin_data.json')
+.then(res => res.json())
+.then(res => pin_data = res)
+.catch(err => console.warn(err))
+
 /* Info Modal setup and events */
 // Initial Modal setup
 const modalNode = document.querySelector('.info-modal')
@@ -14,6 +21,15 @@ const showModalNode = (x, y) => {
 // Hide info-modal
 const hideModalNode = () => {
     modalNode.classList.add('disabled')
+}
+
+const populateModalNode = (pinID) => {
+    // Get data using pinID
+    const {data} = pin_data.find(elem => elem.pin_id === pinID)
+    // Populate infoNode with information
+    modalNode.querySelector('h3').innerText = data.name
+    modalNode.querySelector('h5 span.type').innerText = data.type
+    modalNode.querySelector('h5 span.address').innerText = data.address
 }
 
 // Dispatch on info-modal mouse over event
@@ -55,10 +71,16 @@ infoNode.classList.add('disabled')
 
 const populateInfoNode = (pinID) => {
     // Get data using pinID
-    
+    const {data} = pin_data.find(elem => elem.pin_id === pinID)
     // Populate infoNode with information
-    
-    console.log(pinID)
+    infoNode.querySelector('h3.title').innerHTML = data.name
+    infoNode.querySelector('h5.subtitle').innerHTML = data.type
+    infoNode.querySelector('h5.address').innerHTML = data.address
+    infoNode.querySelector('.area-of-activity span').innerHTML = data.area_of_activity
+    infoNode.querySelector('.type-of-activity span').innerHTML = data.type_of_activity
+    infoNode.querySelector('.additional-info').innerHTML = data.additional_info
+    infoNode.querySelector('.keywords span').innerHTML = data.keywords
+    console.log(data)
 }
 
 /* Map PIN Event listeners */
@@ -68,6 +90,9 @@ const onMouseEnterEvent = (event) => {
     removeModalLeaveListener()
     clearTimeout(currentTimeout)
     
+    // Repopulate the modalNode
+    populateModalNode(event.target.id)
+
     pin_mouseIsOver = true
     const rez = getRelativeCoords(event.target)
     const { width } = event.target.getBoundingClientRect()
@@ -94,16 +119,17 @@ const onClickEvent = (pinID) => {
     // Check if selected Pin is already displayed
     if(pinID === currentPinID){
         infoNode.classList.add('disabled')
+        currentPinID = undefined
         return
     }
     // Hide infoNode before updating 
     infoNode.classList.add('disabled')
     // Populate the infoNode with new data after pin select
-    populateInfoNode(element)
+    populateInfoNode(pinID)
     
     // Display the infoNode
     infoNode.classList.remove('disabled')
-    
+    currentPinID = pinID
 }
 
 /* Set mouse events listeners for pins */
