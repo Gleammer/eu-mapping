@@ -26,8 +26,9 @@ const hideModalNode = () => {
 
 const populateModalNode = (pinID) => {
     // Get data using pinID
-    const {data} = pin_data.find(elem => elem.pin_id === pinID)
+    const {flag, data} = pin_data.find(elem => elem.pin_id === pinID)
     // Populate infoNode with information
+    modalNode.querySelector('img').src = `./public/flags/${flag}.svg`
     modalNode.querySelector('h3').innerText = data.name
     modalNode.querySelector('h5 span.type').innerText = data.type
     modalNode.querySelector('h5 span.address').innerText = data.address
