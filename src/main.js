@@ -15,7 +15,13 @@ let pin_mouseIsOver = false
 
 // Display info-modal at coordinates
 const showModalNode = (x, y) => {
+    // {x, y} == position above the pin relative to svgObject
     modalNode.classList.remove('disabled')
+    
+    const halfModalWidth = modalNode.offsetWidth / 2
+    x = Math.min(svgObjectWidth - halfModalWidth, x)
+    x = Math.max(halfModalWidth, x)
+
     modalNode.style.left = `${x}px`
     modalNode.style.top = `${y}px`
 }
@@ -26,8 +32,9 @@ const hideModalNode = () => {
 
 const populateModalNode = (pinID) => {
     // Get data using pinID
-    const {data} = pin_data.find(elem => elem.pin_id === pinID)
+    const {flag, data} = pin_data.find(elem => elem.pin_id === pinID)
     // Populate infoNode with information
+    modalNode.querySelector('img').src = `./public/flags/${flag}.svg`
     modalNode.querySelector('h3').innerText = data.name
     modalNode.querySelector('h5 span.type').innerText = data.type
     modalNode.querySelector('h5 span.address').innerText = data.address
@@ -96,8 +103,8 @@ const onMouseEnterEvent = (event) => {
     populateModalNode(event.target.id)
 
     pin_mouseIsOver = true
-    const rez = getRelativeCoords(event.target)
-    const { width } = event.target.getBoundingClientRect()
+    const rez = getRelativeCoords(event.target) // pin position relative to svg
+    const { width } = event.target.getBoundingClientRect() // pin width
     showModalNode(rez.x + width / 2, rez.y)
     //console.log(`Enter Pin: ${event.target.id}`)
 }
@@ -146,11 +153,13 @@ const setPinListeners = (pins) => {
 
 // Working with SVG Object
 let svgObject = document.querySelector('.eu-map')
+let svgObjectWidth = 0
 
 svgObject.addEventListener('load', () => {
     svgObject = svgObject.contentDocument
+    svgObjectWidth = svgObject.querySelector('svg').getBoundingClientRect().width
     
     const pinList = svgObject.querySelectorAll('svg>g[id]')
     setPinListeners(pinList)
-    console.log(pinList)
+    //console.log(pinList)
 })
