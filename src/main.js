@@ -72,7 +72,7 @@ const getRelativeCoords = (element) => {
 // Read more button on modal node
 const modalReadMore = (event) => {
     event.preventDefault()
-    console.log(event.target.dataset.pin)
+    //console.log(event.target.dataset.pin)
     onClickEvent(event.target.dataset.pin)
 }
 
@@ -85,13 +85,18 @@ infoNode.classList.add('disabled')
 const populateInfoNode = (pinID) => {
     // Get data using pinID
     const {data} = pin_data.find(elem => elem.pin_id === pinID)
+    //console.log(data)
+    
     // Populate infoNode with information
     infoNode.querySelector('h3.title').innerHTML = data.name
     infoNode.querySelector('h5.subtitle').innerHTML = data.type
     infoNode.querySelector('h5.address').innerHTML = data.address
     infoNode.querySelector('.area-of-activity span').innerHTML = data.area_of_activity
     infoNode.querySelector('.type-of-activity span').innerHTML = data.type_of_activity
-    infoNode.querySelector('.additional-info').innerHTML = data.additional_info
+    // Additional info
+    infoNode.querySelector('.who-are').innerHTML = data.who_are
+    infoNode.querySelector('.what-do').innerHTML = data.what_do
+    infoNode.querySelector('.how-do').innerHTML = data.how_do
     infoNode.querySelector('.keywords span').innerHTML = data.keywords
 }
 
