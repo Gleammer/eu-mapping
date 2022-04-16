@@ -12,7 +12,6 @@ const modalNode = document.querySelector('.info-modal')
 let currentTimeout = undefined
 let modal_mouseIsOver = false
 let pin_mouseIsOver = false
-
 // Display info-modal at coordinates
 const showModalNode = (x, y) => {
     // {x, y} == position above the pin relative to svgObject
@@ -21,7 +20,7 @@ const showModalNode = (x, y) => {
     const halfModalWidth = modalNode.offsetWidth / 2
     x = Math.min(svgObjectWidth - halfModalWidth, x)
     x = Math.max(halfModalWidth, x)
-
+    
     modalNode.style.left = `${x}px`
     modalNode.style.top = `${y}px`
 }
@@ -29,7 +28,7 @@ const showModalNode = (x, y) => {
 const hideModalNode = () => {
     modalNode.classList.add('disabled')
 }
-
+// Populate modal with fetched data
 const populateModalNode = (pinID) => {
     // Get data using pinID
     const {flag, data} = pin_data.find(elem => elem.pin_id === pinID)
@@ -38,8 +37,8 @@ const populateModalNode = (pinID) => {
     modalNode.querySelector('h3').innerText = data.name
     modalNode.querySelector('h5 span.type').innerText = data.type
     modalNode.querySelector('h5 span.address').innerText = data.address
+    modalNode.querySelector('a').dataset.pin = pinID
 }
-
 // Dispatch on info-modal mouse over event
 modalNode.addEventListener('mouseenter', () => {
     modal_mouseIsOver = true
@@ -61,7 +60,6 @@ const addModalLeaveListener = () => {
 const removeModalLeaveListener = () => {
     modalNode.removeEventListener('modal_leave', modalLeaveEvent)
 }
-
 // Maths and coordinates functions
 const getRelativeCoords = (element) => {
     const elementRect = element.getBoundingClientRect()
@@ -71,23 +69,34 @@ const getRelativeCoords = (element) => {
         y: elementRect.top
     }
 }
+// Read more button on modal node
+const modalReadMore = (event) => {
+    event.preventDefault()
+    //console.log(event.target.dataset.pin)
+    onClickEvent(event.target.dataset.pin)
+}
 
 
 /* Info Wrapper setup and modifiers */
 const infoNode = document.querySelector('.info-wrapper')
-let currentPinID = undefined
+//let currentPinID = undefined
 infoNode.classList.add('disabled')
 
 const populateInfoNode = (pinID) => {
     // Get data using pinID
     const {data} = pin_data.find(elem => elem.pin_id === pinID)
+    //console.log(data)
+    
     // Populate infoNode with information
     infoNode.querySelector('h3.title').innerHTML = data.name
     infoNode.querySelector('h5.subtitle').innerHTML = data.type
     infoNode.querySelector('h5.address').innerHTML = data.address
     infoNode.querySelector('.area-of-activity span').innerHTML = data.area_of_activity
     infoNode.querySelector('.type-of-activity span').innerHTML = data.type_of_activity
-    infoNode.querySelector('.additional-info').innerHTML = data.additional_info
+    // Additional info
+    infoNode.querySelector('.who-are').innerHTML = data.who_are
+    infoNode.querySelector('.what-do').innerHTML = data.what_do
+    infoNode.querySelector('.how-do').innerHTML = data.how_do
     infoNode.querySelector('.keywords span').innerHTML = data.keywords
 }
 
@@ -101,7 +110,7 @@ const onMouseEnterEvent = (event) => {
     
     // Repopulate the modalNode
     populateModalNode(event.target.id)
-
+    
     pin_mouseIsOver = true
     const rez = getRelativeCoords(event.target) // pin position relative to svg
     const { width } = event.target.getBoundingClientRect() // pin width
@@ -126,11 +135,14 @@ const onMouseLeaveEvent = () => {
 // On pin click event
 const onClickEvent = (pinID) => {
     // Check if selected Pin is already displayed
+    // OBSOLETE:
+    /*
     if(pinID === currentPinID){
         infoNode.classList.add('disabled')
         currentPinID = undefined
         return
     }
+    */
     // Hide infoNode before updating 
     infoNode.classList.add('disabled')
     // Populate the infoNode with new data after pin select
@@ -138,7 +150,7 @@ const onClickEvent = (pinID) => {
     
     // Display the infoNode
     infoNode.classList.remove('disabled')
-    currentPinID = pinID
+    //currentPinID = pinID
 }
 
 
